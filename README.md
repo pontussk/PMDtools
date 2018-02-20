@@ -3,9 +3,8 @@ Compute postmortem damage patterns and decontaminate ancient genomes
 
 
 ##############Description
-PMDtools implements a likelihood framework incorporating postmortem damage (PMD), base quality scores and biological polymorphism to identify degraded DNA sequences that are unlikely to originate from modern contamination. Using the model, each sequence is assigned a PMD score, for which positive values indicate support for the sequence being genuinely ancient. For details of the method, please see the main paper in PNAS.
 
-In addition, PMDtools also offers PMD-aware base quality score adjustment and investigation of damage patterns.
+PMDtools implements a likelihood framework incorporating postmortem damage (PMD), base quality scores and biological polymorphism to identify degraded DNA sequences that are unlikely to originate from modern contamination. Using the model, each sequence is assigned a PMD score, for which positive values indicate support for the sequence being genuinely ancient. For details of the method, please see the main paper in PNAS.
 
 PMDtools takes SAM-formatted input, and requires an MD tag with alignment information. The MD tag is featured in the output of many aligners but can otherwise be added e.g. using the SAMtools fillmd/calmd tool (Li, Handsaker et al. 2009).
 
@@ -18,9 +17,14 @@ To restrict to sequences with a PMD score of at least 3, enter:
 
 samtools view -h mybam.bam | python pmdtools.0.60.py --threshold 3 --header | samtools view -Sb - > mybam.pmds3filter.bam
 
-To compute deamination-derived damage patterns, enter:
+To compute deamination-derived damage patterns separating CpG and non-CpG sites, enter:
 
-samtools view mybam.bam | python pmdtools.py --deamination --range 30 > PMD_temp.txt R CMD BATCH plotPMD.R cp PMD_plot.pdf mybam.PMD_plot.pdf
+samtools view mybam.bam | python pmdtools.0.60.py --platypus --requirebaseq 30 > PMD_temp.txt
+
+R CMD BATCH plotPMD.v2.R
+
+cp PMD_plot.frag.pdf PMD.plot.MYBAM.pdf
+
 
 PMDtools also computes damage patterns from sequence libraries in which damage has been repaired, e.g. using uracil–DNA–glycosylase and endonuclease VIII. This is done by restricting to nucleotides in a CpG context, for which deamination of Cytosine results in Thymine. Enter:
 
