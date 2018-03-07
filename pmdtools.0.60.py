@@ -1070,11 +1070,14 @@ for line in sys.stdin:
 	if passed >= options.maxreads:break
 
 if options.first:
-	n=firstC+firstT
-	freq=1.0*firstT/n
-	SE=math.sqrt((freq*(1.0-freq))/n)
+	if n>0:
+		freq=1.0*firstT/n
+		SE=math.sqrt((freq*(1.0-freq))/n)
+	else:
+		freq=float('nan')
+		SE=float('nan')
 	if freq==0.0:
-		SE='NA'
+		SE=float('nan')
 	print 'C>T_at_1st_position_and_SE:','\t',freq,'\t',SE#,'\t',n,firstC,firstT
 
 
