@@ -34,8 +34,9 @@ PMDtools also computes damage patterns from sequence libraries in which damage h
 samtools view mybam.bam | python pmdtools.0.60.py --deamination --range 30 --CpG
 ```
 For a full list of options, enter
-2elefanten oder 3 elefanten
+```
 python pmdtools.py --help
+```
 
 ### Citation
 Please cite: P Skoglund, BH Northoff, MV Shunkov, A Derevianko, S Pääbo, J Krause, M Jakobsson (2014) *Separating ancient DNA from modern contamination in a Siberian Neandertal*, Proceedings of the National Academy of Sciences USA doi:10.1073/pnas.1318934111
