@@ -1,5 +1,7 @@
 # PMDtools
-Compute postmortem damage patterns and decontaminate ancient genomes
+Compute postmortem damage patterns and decontaminate ancient genomes. 
+
+[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat-square)](http://bioconda.github.io/recipes/pmdtools/README.html)
 
 
 ## Description
