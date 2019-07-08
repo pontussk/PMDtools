@@ -42,3 +42,6 @@ python pmdtools.py --help
 
 ### Citation
 Please cite: P Skoglund, BH Northoff, MV Shunkov, A Derevianko, S Pääbo, J Krause, M Jakobsson (2014) *Separating ancient DNA from modern contamination in a Siberian Neandertal*, Proceedings of the National Academy of Sciences USA doi:10.1073/pnas.1318934111
+
+ ![](https://github.com/pontussk/PMDtools/blob/master/PMD_Skoglund_et_al_2015_Current_Biology.png?raw=true)
+
