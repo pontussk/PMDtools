@@ -40,13 +40,20 @@ This estimate with a standard error only for the first position can also be obta
 samtools view mybam.bam | python pmdtools.0.60.py --first --requirebaseq 30 --CpG
 ```
 
-### Separating ancient DNA molecules from others
+### Separating ancient DNA molecules from others with PMD-scores
 To use a likelihood framework restrict to sequences with a PMD score of at least 3, enter:
 ```
 samtools view -h mybam.bam | python pmdtools.0.60.py --threshold 3 --header | samtools view -Sb - > mybam.pmds3filter.bam
 ```
+### Separating ancient DNA molecules from others with a simple approach
+To use restrict to sequences with a C->T mismatch in the 5' and/or 3', enter:
+```
+samtools view -h mybam.bam | python pmdtools.0.60.py --customterminus 0,-1 --header | samtools view -Sb - > mybam.pmds3filter.bam
+```
+The default is for double-stranded libraries, looking for G->A mismatches in the 3'-end. If the data is single-stranded libraries, use *--ss* to instead look for C->T mismatches also in the 3'-end.
 
 
+### More options
 For a full list of options, enter
 ```
 python pmdtools.py --help
