@@ -16,7 +16,8 @@ Questions can be addressed to pontus.skoglund@gmail.com.
 
 ## Basic usage
 
-*Plotting ancient DNA damage patterns*: To compute deamination-derived damage patterns separating CpG and non-CpG sites, enter:
+### Plotting ancient DNA damage patterns
+To compute deamination-derived damage patterns separating CpG and non-CpG sites, enter:
 
 ```
 samtools view mybam.bam | python pmdtools.0.60.py --platypus --requirebaseq 30 > PMD_temp.txt
@@ -28,7 +29,8 @@ cp PMD_plot.frag.pdf PMD.plot.MYBAM.pdf
 
 This allows computing damage patterns from sequence libraries of mammalian nuclear DNA in which damage has been repaired, e.g. using uracil–DNA–glycosylase and endonuclease VIII. This is done by restricting to nucleotides in a CpG context, for which deamination of methylated Cytosine results in Thymine.
 
-*Damage patterns in a single number with statistical uncertainty*:A useful tool when screening many libraries is to compute deamination-derived damage patterns at the 5' position with a bionomial standard error:
+### Damage patterns in a single number with statistical uncertainty
+A useful tool when screening many libraries is to compute deamination-derived damage patterns at the 5' position with a bionomial standard error:
 
 ```
 samtools view mybam.bam | python pmdtools.0.60.py --first --requirebaseq 30
@@ -38,7 +40,8 @@ This estimate with a standard error only for the first position can also be obta
 samtools view mybam.bam | python pmdtools.0.60.py --first --requirebaseq 30 --CpG
 ```
 
-*Separating ancient DNA molecules from others*: To use a likelihood framework restrict to sequences with a PMD score of at least 3, enter:
+### Separating ancient DNA molecules from others
+To use a likelihood framework restrict to sequences with a PMD score of at least 3, enter:
 ```
 samtools view -h mybam.bam | python pmdtools.0.60.py --threshold 3 --header | samtools view -Sb - > mybam.pmds3filter.bam
 ```
