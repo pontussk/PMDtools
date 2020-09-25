@@ -14,7 +14,14 @@ No external packages except for python 2.6+/python3 are required, but for manipu
 
 Questions can be addressed to pontus.skoglund@gmail.com.
 
-## Basic usage
+## Ancient DNA damage patterns
+
+### Viewing ancient DNA damage patterns
+To view deamination-derived damage patterns in a simple table, without separating CpG sites, enter:
+
+```
+samtools view mybam.bam | python pmdtools.0.60.py --deamination
+```
 
 ### Plotting ancient DNA damage patterns
 To compute deamination-derived damage patterns separating CpG and non-CpG sites, enter:
@@ -29,6 +36,7 @@ cp PMD_plot.frag.pdf PMD.plot.MYBAM.pdf
 
 This allows computing damage patterns from sequence libraries of mammalian nuclear DNA in which damage has been repaired, e.g. using uracil–DNA–glycosylase and endonuclease VIII. This is done by restricting to nucleotides in a CpG context, for which deamination of methylated Cytosine results in Thymine.
 
+
 ### Damage patterns in a single number with statistical uncertainty
 A useful tool when screening many libraries is to compute deamination-derived damage patterns at the 5' position with a bionomial standard error:
 
@@ -39,6 +47,7 @@ This estimate with a standard error only for the first position can also be obta
 ```
 samtools view mybam.bam | python pmdtools.0.60.py --first --requirebaseq 30 --CpG
 ```
+## Filtering for confident ancient DNA sequences
 
 ### Separating ancient DNA molecules from others with PMD-scores
 To use a likelihood framework restrict to sequences with a PMD score of at least 3, enter:
