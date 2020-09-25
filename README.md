@@ -14,6 +14,7 @@ No external packages except for python 2.6+/python3 are required, but for manipu
 
 Questions can be addressed to pontus.skoglund@gmail.com.
 
+
 ## Ancient DNA damage patterns
 
 ### Viewing ancient DNA damage patterns
@@ -47,6 +48,8 @@ This estimate with a standard error only for the first position can also be obta
 ```
 samtools view mybam.bam | python pmdtools.0.60.py --first --requirebaseq 30 --CpG
 ```
+
+
 ## Filtering for confident ancient DNA sequences
 
 ### Separating ancient DNA molecules from others with PMD-scores
@@ -62,13 +65,14 @@ samtools view -h mybam.bam | python pmdtools.0.60.py --customterminus 0,-1 --hea
 The default is for double-stranded libraries, looking for G->A mismatches in the 3'-end. If the data is single-stranded libraries, use *--ss* to instead look for C->T mismatches also in the 3'-end.
 
 
-### More options
+## More options
 For a full list of options, enter
 ```
 python pmdtools.py --help
 ```
 
-### Citation
+
+## Citation
 Please cite: P Skoglund, BH Northoff, MV Shunkov, A Derevianko, S Pääbo, J Krause, M Jakobsson (2014) *Separating ancient DNA from modern contamination in a Siberian Neandertal*, Proceedings of the National Academy of Sciences USA doi:10.1073/pnas.1318934111
 
  ![](https://github.com/pontussk/PMDtools/blob/master/PMD_Skoglund_et_al_2015_Current_Biology.png?raw=true)
