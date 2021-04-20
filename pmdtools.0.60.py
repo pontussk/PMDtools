@@ -344,9 +344,9 @@ for line in sys.stdin:
 		if reverse: continue
 
 	DSfield=False
-	if 'DS:Z:' in line:
+	if '\tDS:Z:' in line:
 		DSfield=True
-		PMDS= float(line.split('DS:Z:')[1].rstrip('\n').split()[0])
+		PMDS= float(line.split('\tDS:Z:')[1].rstrip('\n').split()[0])
 		LR=PMDS
 		#print PMDS
 	
