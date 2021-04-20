@@ -232,6 +232,7 @@ mismatch_dict={}
 
 import re
 cigarparser = re.compile("([0-9]*)([A-Z])")
+dsparser = re.compile("\tDS:Z:([-0-9.]+)(\s|$)")
 
 
 start_dict_rev= {}
@@ -344,9 +345,9 @@ for line in sys.stdin:
 		if reverse: continue
 
 	DSfield=False
-	if '\tDS:Z:' in line:
+	if re.search(dsparser, line):
 		DSfield=True
-		PMDS= float(line.split('\tDS:Z:')[1].rstrip('\n').split()[0])
+		PMDS= float(re.findall(dsparser, line)[0][0])
 		LR=PMDS
 		#print PMDS
 	
